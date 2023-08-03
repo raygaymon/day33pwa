@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <form [formGroup]="form" (ngSubmit)="processForm(form)">
+        <!--*ngIf="form.controls['form name'].error?.['required']"-->
+
+        <div class="mb3">
+            <mat-form-field>
+                <mat-label for="name">Name: </mat-label>
+                <input matInput formControlName="name" #fullName>
+                <mat-hint>Enter your full name idiot</mat-hint>
+                <mat-error *ngIf="form.controls['name'].errors?.['required']">Enter your full name idiot</mat-error>
+            </mat-form-field>
+        </div>
+
+        <br>
+        <div class="mb3">
+            <mat-form-field>
+
+                <mat-label for="email">Email: </mat-label>
+                <mat-icon matSuffix>mail_outline</mat-icon>
+                <input matInput formControlName="email" #email>
+                <mat-hint>Enter your email idiot</mat-hint>
+                <mat-error>Enter your email idiot</mat-error>
+            </mat-form-field>
+        </div>
+        <br>
+        <div class="mb3">
+            <mat-form-field>
+
+                <mat-label for="address">Address: </mat-label>
+                <mat-icon matSuffix>contact_mail</mat-icon>
+                <textarea matInput formControlName="address" #address></textarea>
+            </mat-form-field>
+        </div>
+        <br>
+        <mat-form-field>
+            <mat-label for="country">Country: </mat-label>
+            <mat-select matNativeControl formControlName="country" #country>
+                <mat-option value="your mum">Your mum</mat-option>
+                <mat-option value="your dad">Your dad</mat-option>
+                <mat-option value="your ass">Your ass</mat-option>
+                <mat-option value="your face">Your face</mat-option>
+                <mat-option value="your dick">Your dick</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <div class="row">
+            <mat-label for="gender">Gender: </mat-label>
+            <mat-radio-group formControlName="gender">
+                <mat-radio-button value="your mum">Your mum</mat-radio-button>
+                <mat-radio-button value="your dad">Your dad</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <br>
+        <mat-form-field>
+            <mat-label>When were you born: </mat-label>
+            <input matInput formControlName="bday" [matDatepicker]="picker" />
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-icon matSuffix>calendar_month</mat-icon>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br><br>
+        <button mat-raised-button color="primary">Save</button>
+    </form>
+</div>
